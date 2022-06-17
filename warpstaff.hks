@@ -1,0 +1,15 @@
+RepointSequenceHumanProcCode:
+    type: symbol
+    addr: 0x354718
+    sym: gProcMapSequenceHuman
+
+PostStaffAction:
+    type: patch
+    addr: 0x38b2dc
+    data: 2A
+
+WarpRescuePosWrapper:
+    type: branch
+    link: true
+    addr: 0x35bc80
+    func: GetRescuePosWrapper

@@ -1,37 +1,7 @@
 .text
 .align 4
 
-.equ map__Cursor__Get, 0x39b8fc
-.equ map__Mind__Get, 0x389014
-.equ map__Mind__GetUnit, 0x5261fc
-.equ map__Mind__GetTargetUnit, 0x5261dc
-.equ map__Deploy__Cannon, 0x39d270
-.equ map__Deploy__DoubleFillRod, 0x39c654
-.equ map__Deploy__FillRod, 0x39d448
-.equ map__Panel__Deploy__SetMode, 0x393f10
-.equ map__Intermediate__GameInfo__EnableChangeViewer, 0x34cb78
-.equ map__Intermediate__GameInfo__Update, 0x34cbd4
-.equ map__Intermediate__GameInfo__Set, 0x1bbe38
-.equ map__Intermediate__GameInfo__UpdateJobIntro, 0x34cacc
-.equ map__Intermediate__GameInfo__DisableJobIntro, 0x34cb6c
-.equ map__TerrainInfo__Get, 0x34c4ec
-.equ map__TerrainInfo__Show, 0x34ca6c
-.equ map__TerrainInfo__Hide, 0x34c9b4
-.equ map__Gradation__Get, 0x3a58e0
-.equ map__Situation__IsCancelOperation, 0x527f14
-.equ map__SequenceHelper__MoveCursor, 0x35e3bc
-.equ map__SequenceHelper__DangerTick, 0x35e2cc
-.equ map__sound__Se__Decide, 0x398208
-.equ map__sound__Se__Cancel, 0x3981d4
-.equ map__sound__Se__Failure, 0x398254
-.equ ProcInst__Jump, 0x4edfcc
-.equ game__graphics__GameCursor__TickFree, 0x3e3324
-.equ map__ItemHelper__Rod__GetRescuePosition, 0x34a32c
-.equ Item__Get, 0x3d0e90
-.equ unit__GetItemEquipped, 0x3d5fb0
-.equ unit__Item__GetName, 0x53b368
-.equ TerrainCost__GetCostFromUnit, 0x1a6708
-.equ map__Image__Unit__GetUnit, 0x526424
+.include "../source/Symbols.s"
 
 .global WarpCursorPrepare
 WarpCursorPrepare:
@@ -434,7 +404,7 @@ bl map__Mind__Get
 mov r5, r0
 bl map__Mind__GetUnit
 mov r6, r0
-bl unit__GetItemEquipped
+bl Unit__GetItemEquipped
 cmp r0, #0
 addne r6, #4 @if unit has an equipped weapon, the staff will be 2nd.
 add r6, #0x108 @otherwise it is first.
